@@ -63,7 +63,7 @@ class ImageServiceProvider extends ServiceProvider
         //publish the nova resource
         $this->publishes( [
             __DIR__ . '/../Nova/Image.php' => app_path( 'Nova/Image.php' ),
-        ], 'nova.resource' );
+        ], 'image.nova.resource' );
 
 
         // Publishing the configuration file.

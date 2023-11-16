@@ -4,9 +4,9 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Author Name",
-            "email": "author@email.com",
-            "homepage": "http://author.com"
+            "name": "Gerhard Popp",
+            "email": "gerhard@poppgerhard.at",
+            "homepage": "https://poppgerhard.at"
         }
     ],
     "php": "8.0",
@@ -38,5 +38,13 @@
     },
     "require": {
         "intervention/image": "^2.7"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan vendor:publish --tag=config --provider=gepopp\\Image\\ImageServiceProvider"
+        ],
+        "post-update-cmd": [
+            "php artisan vendor:publish --tag=config --provider=gepopp\\Image\\ImageServiceProvider"
+        ]
     }
 }
