@@ -24,7 +24,7 @@ class CreateImageSizeJob implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct( public int $image_id, public int $width, public int|null $height, public bool $crop = false, public bool $webp = true )
+    public function __construct( public int $image_id, public int $width, public int|null $height, public bool $crop = false )
     {
         //
     }

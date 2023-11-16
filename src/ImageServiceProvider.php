@@ -3,6 +3,8 @@
 namespace Gepopp\Image;
 
 use Gepopp\Image\Observers\ImageObserver;
+use Gepopp\Image\View\Components\ImageComponent;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
 class ImageServiceProvider extends ServiceProvider
@@ -15,7 +17,7 @@ class ImageServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'gepopp');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'gepopp');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'gepopp');
         $this->loadMigrationsFrom( __DIR__ . '/../database/migrations', 'gepopp' );
         // $this->loadRoutesFrom(__DIR__.'/routes.php');
 
@@ -26,6 +28,8 @@ class ImageServiceProvider extends ServiceProvider
 
 
         \Gepopp\Image\Model\Image::observe( ImageObserver::class );
+
+        Blade::component(  ImageComponent::class, 'image');
     }
 
     /**
@@ -72,9 +76,9 @@ class ImageServiceProvider extends ServiceProvider
         ], 'image.config' );
 
         // Publishing the views.
-        /*$this->publishes([
+        $this->publishes([
             __DIR__.'/../resources/views' => base_path('resources/views/vendor/gepopp'),
-        ], 'image.views');*/
+        ], 'image.views');
 
         // Publishing assets.
         /*$this->publishes([

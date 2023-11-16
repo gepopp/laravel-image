@@ -48,9 +48,9 @@ class ImageObserver
             foreach ($sizes as $size)
             {
                 if( config('image.image_sizes.queue')){
-                    CreateImageSizeJob::dispatch($image->id, $size[0], $size[1], $size[2], config('image.image_sizes.create_webp'));
+                    CreateImageSizeJob::dispatch($image->id, ...$size);
                 }else{
-                    CreateImageSizeJob::dispatchSync($image->id, $size[0], $size[1], $size[2], config('image.image_sizes.create_webp'));
+                    CreateImageSizeJob::dispatchSync($image->id, ...$size);
                 }
             }
         }
