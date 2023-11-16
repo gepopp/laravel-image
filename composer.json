@@ -1,0 +1,42 @@
+{
+    "name": "gepopp/image",
+    "description": ":package_description",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Author Name",
+            "email": "author@email.com",
+            "homepage": "http://author.com"
+        }
+    ],
+    "php": "8.0",
+    "homepage": "https://github.com/gepopp/image",
+    "keywords": ["Laravel", "Image"],
+    "require-dev": {
+        "phpunit/phpunit": "~9.0",
+        "orchestra/testbench": "~7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gepopp\\Image\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gepopp\\Image\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Gepopp\\Image\\ImageServiceProvider"
+            ],
+            "aliases": {
+                "Image": "Gepopp\\Image\\Facades\\Image"
+            }
+        }
+    },
+    "require": {
+        "intervention/image": "^2.7"
+    }
+}
